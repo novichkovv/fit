@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="col-xs-9 col-md-10">
-        <h1>User Groups</h1>
+        <h1>Группы Пользователей</h1>
     </div>
 </div>
 <br>
@@ -15,8 +15,8 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Group Name</th>
-                <th>Actions</th>
+                <th>Название</th>
+                <th>Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -43,7 +43,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Delete Group</h4>
+                <h4 class="modal-title">Удалить Группу Пользователей</h4>
             </div>
             <div class="modal-body">
                 <p>Are you sure?</p>
@@ -51,8 +51,8 @@
             <div class="modal-footer">
                 <form action="" method="post">
                     <input name="delete_id" id="delete_input" type="hidden" value="">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" name="delete_btn" class="btn btn-primary">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                    <button type="submit" name="delete_btn" class="btn btn-primary">Удалить</button>
                 </form>
             </div>
         </div>

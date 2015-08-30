@@ -43,7 +43,7 @@
 <div class="header-container container">
 <div class="row">
 <div class="logo"> <a href="index.html" title="Flavours HTML">
-        <div><img src="images/logo.png" alt="Flavours Store"></div>
+        <div><img src="<?php echo SITE_DIR; ?>images/main/fit-logo.png" alt="Flavours Store"></div>
     </a> </div>
 <div class="fl-nav-menu">
 
@@ -55,7 +55,7 @@
 <!-- BEGIN NAV -->
 <ul id="nav" class="hidden-xs">
 <li id="nav-home" class="level0 parent drop-menu"><a class="level-top active" href="<?php echo MAIN_SITE_DIR; ?>"><span class="fa fa-home" style="font-size: 30px;"></span> </a></li>
-<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Salads</span></a>
+<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Протеины</span></a>
     <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
         <div class="container">
             <div class="level0-wrapper2">
@@ -63,7 +63,7 @@
                     <div class="nav-block nav-block-center">
                         <!--mega menu-->
                         <ul class="level0">
-                            <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Bread Salads‎</span></a>
+                            <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Сывороточный</span></a>
                                 <!--sub sub category-->
                                 <ul class="level1">
                                     <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Cappon Magro
@@ -179,7 +179,7 @@
     <!--level0-wrapper dropdown-6col-->
     <!--mega menu-->
 </li>
-<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Soups‎</span></a>
+<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Гейнеры</span></a>
     <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
         <div class="container">
             <div class="level0-wrapper2">
@@ -312,7 +312,7 @@
     <!--level0-wrapper dropdown-6col-->
     <!--mega menu-->
 </li>
-<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Fast Food</span></a>
+<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Аминокислоты</span></a>
     <div class="level0-wrapper dropdown-6col" style="left: 0px; display: none;">
         <div class="container">
             <div class="level0-wrapper2">
@@ -428,8 +428,8 @@
     <!--level0-wrapper dropdown-6col-->
     <!--mega menu-->
 </li>
-<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Sandwiches‎</span></a> </li>
-<li class="level0 parent drop-menu"><a href="#"><span>Pages</span> </a>
+<li class="mega-menu"> <a class="level-top" href="grid.html"><span>Витамины</span></a> </li>
+<li class="level0 parent drop-menu"><a href="#"><span>Жиросжигатели</span> </a>
     <!--sub sub category-->
     <ul class="level1">
         <li class="level1 first"><a href="grid.html"><span>Product Grid</span></a></li>
@@ -451,7 +451,7 @@
         <li class="level1 first parent"><a href="blog.html"><span>Blog</span></a>
             <!--sub sub category-->
             <ul class="level2 right-sub">
-                <li class="level2 nav-2-1-1 first"><a href="blog-detail.html"><span>Blog Detail</span></a></li>
+                <li class="level2 nav-2-1-1 first"><a href="blog-detail.html"><span>Жиросжигатели</span></a></li>
             </ul>
             <!--sub sub category-->
         </li>
@@ -462,7 +462,7 @@
         <li class="level1"><a href="newsletter.html"><span>Newsletter</span></a> </li>
     </ul>
 </li>
-<li class="fl-custom-tabmenulink mega-menu"> <a href="#" class="level-top"> <span>Custom</span> </a>
+<li class="fl-custom-tabmenulink mega-menu"> <a href="#" class="level-top"> <span>Аксессуары</span> </a>
     <div class="level0-wrapper fl-custom-tabmenu" style="left: 0px; display: none;">
         <div class="container">
             <div class="header-nav-dropdown-wrapper clearer">

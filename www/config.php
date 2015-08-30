@@ -27,7 +27,7 @@ define('IMAGE_DIR', SITE_DIR . '/images/' . PROJECT . '/');
 define('DEVELOPMENT_MODE', true);
 
 
-define('DB_NAME', 'dashboard');
+define('DB_NAME', 'fit_shop');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');

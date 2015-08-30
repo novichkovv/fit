@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="col-xs-9 col-md-10">
-        <h1>Group Permissions</h1>
+        <h1>Доступы</h1>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
                 <li class="active">
                     <a data-toggle="tab" href="#system_routes">
                         <i class="fa fa-gear"></i>
-                        System
+                        Система
                     </a>
                 </li>
                 <li>
@@ -30,7 +30,7 @@
         </header>
 
         <div class="text-right" style="background-color: #fff; height: 60px; box-shadow: 0 5px 1px #B4D9E5; padding: 20px;">
-            <a href="<?php echo SITE_DIR; ?>users/">USERS</a> | PERMISSIONS
+            <a href="<?php echo SITE_DIR; ?>users/">Сотрудники</a> | Доступы
         </div>
         <div style="background: #B4D9E5; height: 5px;"></div>
         <div class="panel-body">
@@ -140,13 +140,13 @@
                         var respond = JSON.parse(msg);
                     }
                     catch (e) {
-                        Notifier.error('Save failed', 'Unpredicted Error!');
+                        Notifier.error('Не Сохранено', 'Непредвиденная Ошибка!');
                         return false;
                     }
                     if (respond.status == 1) {
-                        Notifier.success('The data has been saved!', 'Success');
+                        Notifier.success('Информация Сохранена', 'Успешно!');
                     } else {
-                        Notifier.error('Save failed', 'Unpredicted Error!');
+                        Notifier.error('Не Сохранено', 'Непредвиденная Ошибка!');
                     }
                 }
             };

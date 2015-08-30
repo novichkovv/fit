@@ -37,7 +37,8 @@ abstract class controller extends base
         registry::set('log', array());
         $this->controller_name = $controller;
         $this->check_auth = $this->checkAuth();
-        if($this->check_auth) {
+        if($this->check_auth)
+        {
             $this->sidebar();
         }
         $this->action_name = $action . ($this->check_auth ? '_na' : '');
@@ -73,7 +74,7 @@ abstract class controller extends base
         $this->render('log', registry::get('log'));
         $template_file = TEMPLATE_DIR . $template . '.php';
         if(!file_exists($template_file)) {
-            throw new Exception('Can not find template in ' . $template_file);
+            throw new Exception('Can not find template ' . $template_file);
         }
         $this->render('scripts', $this->scripts);
         foreach($this->vars as $k => $v) {
@@ -140,7 +141,7 @@ abstract class controller extends base
     protected function checkAuth()
     {
         if($_SESSION['auth']) {
-            if($user = $this->model('asanatt_users')->getByFields(array(
+            if($user = $this->model('backend_users')->getByFields(array(
                 'id' => $_SESSION['user']['id'],
                 'email' => $_SESSION['user']['email'],
                 'user_password' => $_SESSION['user']['user_password']
@@ -153,11 +154,11 @@ abstract class controller extends base
                 return false;
             }
         } elseif($_COOKIE['auth']) {
-            if($user = $this->model('asanatt_users')->getByFields(array(
+            if($user = $this->model('backend_users')->getByFields(array(
                 'id' => $_COOKIE['id'],
                 'email' => $_COOKIE['email'],
                 'user_password' => $_COOKIE['user_password']
-            ))) {
+            ),0,'','',0)) {
                 registry::set('auth', true);
                 registry::set('user', $user);
                 return true;
@@ -179,7 +180,7 @@ abstract class controller extends base
     protected function auth($email, $password, $remember = false)
     {
         if(!$password) return false;
-        if($user = $this->model('asanatt_users')->getByFields(array(
+        if($user = $this->model('backend_users')->getByFields(array(
             'email' => $email,
             'user_password' => $password
         ))) {
@@ -217,13 +218,13 @@ abstract class controller extends base
     private function sidebar()
     {
         $system_route = trim($_REQUEST['route'], '/');
-        $tmp = $this->model('asanatt_system_routes_user_groups_relations')->getByField('user_group_id', registry::get('user')['user_group_id'], true);
+        $tmp = $this->model('system_routes_user_groups_relations')->getByField('user_group_id', registry::get('user')['user_group_id'], true);
         $permissions = [];
         foreach($tmp as $v) {
             $permissions[$v['system_route_id']] = 1;
         }
         $sidebar = [];
-        $tmp = $this->model('asanatt_system_routes')->getAll('position');
+        $tmp = $this->model('system_routes')->getAll('position');
         $permit_page = false;
         $permitted_urls = [];
 

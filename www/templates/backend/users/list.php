@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="col-xs-9 col-md-10">
-        <h1>Users</h1>
+        <h1>Сотрудники</h1>
     </div>
 </div>
 <br>
@@ -15,12 +15,12 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>User Group</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Группа Пользователей</th>
                 <th>Email</th>
-                <th>Date</th>
-                <th>Actions</th>
+                <th>Дата Создания</th>
+                <th>Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -34,16 +34,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Delete User</h4>
+                <h4 class="modal-title">Удалить Сотрудника</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure?</p>
+                <p>Вы уверены?</p>
             </div>
             <div class="modal-footer">
                 <form action="" method="post">
                     <input name="delete_id" id="delete_input" type="hidden" value="">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" name="delete_btn" class="btn btn-primary">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                    <button type="submit" name="delete_btn" class="btn btn-primary">Удалить</button>
                 </form>
             </div>
         </div>
