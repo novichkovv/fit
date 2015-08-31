@@ -677,7 +677,7 @@
         </div>
         <div class="item-info">
             <div class="info-inner">
-                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
+                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Protein 80 Plus</a> </div>
                 <div class="item-content">
                     <div class="rating">
                         <div class="ratings">
@@ -688,10 +688,10 @@
                         </div>
                     </div>
                     <div class="item-price">
-                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
+                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">1290р.</span> </span> </div>
                     </div>
                     <div class="add_cart">
-                        <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
+                        <button class="button btn-cart" type="button"><span>В Корзину</span></button>
                     </div>
                 </div>
             </div>
@@ -715,7 +715,7 @@
         </div>
         <div class="item-info">
             <div class="info-inner">
-                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
+                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Ultimate Nutrition 100% Whey</a> </div>
                 <div class="item-content">
                     <div class="rating">
                         <div class="ratings">
@@ -726,10 +726,10 @@
                         </div>
                     </div>
                     <div class="item-price">
-                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
+                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">1490р.</span> </span> </div>
                     </div>
                     <div class="add_cart">
-                        <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
+                        <button class="button btn-cart" type="button"><span>В Корзину</span></button>
                     </div>
                 </div>
             </div>
@@ -752,7 +752,7 @@
         </div>
         <div class="item-info">
             <div class="info-inner">
-                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">Retis lapen casen</a> </div>
+                <div class="item-title"><a href="product-detail.html" title="Retis lapen casen">SynthR-6 Isolate</a> </div>
                 <div class="item-content">
                     <div class="rating">
                         <div class="ratings">
@@ -763,10 +763,10 @@
                         </div>
                     </div>
                     <div class="item-price">
-                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">$125.00</span> </span> </div>
+                        <div class="price-box"><span class="regular-price" id="product-price-1"><span class="price">1670р.</span> </span> </div>
                     </div>
                     <div class="add_cart">
-                        <button class="button btn-cart" type="button"><span>Add to Cart</span></button>
+                        <button class="button btn-cart" type="button"><span>В Корзину</span></button>
                     </div>
                 </div>
             </div>
