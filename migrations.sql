@@ -99,7 +99,7 @@ CREATE TABLE attributes (
   id SERIAL PRIMARY KEY,
   attribute_name VARCHAR (255) NOT NULL,
   attribute_key VARCHAR (255) NOT NULL,
-  attribute_type VARCHAR (30) NOT NULL,
+  attribute_type TINYINT UNSIGNED NOT NULL,
   required TINYINT NOT NULL,
   special TINYINT NOT NULL,
   create_date DATETIME NOT NULL
@@ -121,7 +121,34 @@ CREATE TABLE attribute_sets_attributes_relations (
 CREATE TABLE attribute_groups (
   id SERIAL PRIMARY KEY,
   group_name VARCHAR (255) NOT NULL
-);
+)ENGINE=MyISAM;
+
+CREATE TABLE attribute_types (
+  id SERIAL PRIMARY KEY ,
+  type VARCHAR(30) NOT NULL
+)ENGINE=MyISAM;
+
+CREATE TABLE finance_streams (
+  id SERIAL PRIMARY KEY,
+  stream_type TINYINT NOT NULL ,
+  type_id BIGINT UNSIGNED NOT NULL ,
+  outcome_sum DECIMAL(11,2) NOT NULL,
+  custom_comment TEXT NULL,
+  creator BIGINT NOT NULL ,
+  create_date DATETIME NOT NULL
+)ENGINE=MyISAM;
+
+
+CREATE TABLE attributes_values (
+  id SERIAL PRIMARY KEY ,
+  attribute_id BIGINT UNSIGNED NOT NULL,
+  attribute_type TINYINT UNSIGNED NOT NULL,
+  int_value INT(11) NULL,
+  varchar_value VARCHAR(255) NULL,
+  text_value TEXT NULL,
+  decimal_value DECIMAL (11,4) NULL,
+  datetime_value DATETIME NULL
+)ENGINE=MyISAM;
 
 CREATE TABLE attribute_int_values (
   id SERIAL PRIMARY KEY,
