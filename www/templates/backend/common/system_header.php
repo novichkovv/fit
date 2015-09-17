@@ -10,6 +10,12 @@
     <link href="<?php echo SITE_DIR; ?>css/backend/style.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo SITE_DIR; ?>css/libs/jquery-ui.min.css" type="text/css" rel="stylesheet" />
     <link href="<?php echo SITE_DIR; ?>css/libs/select2.min.css" type="text/css" rel="stylesheet" />
+    <?php if ($scripts): ?>
+        <?php foreach ($scripts as $script): ?>
+            <link href="<?php echo SITE_DIR; ?>css/<?php echo $script; ?>.css" type="text/css" rel="stylesheet" />
+        <?php endforeach; ?>
+    <?php endif; ?>
+
     <script src="<?php echo SITE_DIR; ?>js/libs/jquery.min.js" type="text/javascript"></script>
     <script src="<?php echo SITE_DIR; ?>js/libs/jquery-ui.min.js" type="text/javascript"></script>
     <script src="<?php echo SITE_DIR; ?>js/libs/bootstrap.min.js" type="text/javascript"></script>
@@ -19,6 +25,11 @@
     <script src="<?php echo SITE_DIR; ?>js/backend/theme/app.js" type="text/javascript"></script>
     <script src="<?php echo SITE_DIR; ?>js/common/common.js" type="text/javascript"></script>
     <script src="<?php echo SITE_DIR; ?>js/backend/script.js" type="text/javascript"></script>
+    <?php if ($scripts): ?>
+        <?php foreach ($scripts as $script): ?>
+            <script src="<?php echo SITE_DIR; ?>js/<?php echo $script; ?>.js" type="text/javascript"></script>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </head>
 
 

@@ -132,12 +132,18 @@ CREATE TABLE finance_streams (
   id SERIAL PRIMARY KEY,
   stream_type TINYINT NOT NULL ,
   type_id BIGINT UNSIGNED NOT NULL ,
-  outcome_sum DECIMAL(11,2) NOT NULL,
+  stream_sum DECIMAL(11,2) NOT NULL,
   custom_comment TEXT NULL,
   creator BIGINT NOT NULL ,
   create_date DATETIME NOT NULL
 )ENGINE=MyISAM;
 
+CREATE TABLE finance_stream_types (
+  id SERIAL PRIMARY KEY,
+  stream_type TINYINT NOT NULL ,
+  type_name VARCHAR (255) NOT NULL ,
+  type_comment TEXT NULL
+)ENGINE=MyISAM;
 
 CREATE TABLE attributes_values (
   id SERIAL PRIMARY KEY ,
@@ -211,7 +217,9 @@ CREATE TABLE categories_products_relations (
   product_id BIGINT UNSIGNED NOT NULL
 )ENGINE=MyISAM;
 
-
+INSERT INTO `fit_shop`.`system_routes` (`route`, `title`, `position`, `icon`) VALUES ('', 'Финансы', '14', 'fa fa-usd');
+UPDATE `fit_shop`.`system_routes` SET `position`='13' WHERE `id`='16';
+INSERT INTO `fit_shop`.`system_routes` (`route`, `title`, `position`, `parent`) VALUES ('finance/streams', 'Приход/Расход', '15', '17');
 
 
 

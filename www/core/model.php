@@ -113,7 +113,7 @@ class model
         );
         $stm->execute($row);
         if($show) {
-            echo $stm->queryString;
+            echo $stm->getQuery($row);
         }
         if(!empty($id))return $id;
         return $this->pdo->lastInsertId();
@@ -343,7 +343,7 @@ class model
             'INSERT INTO ' . $this->table . ' (' . implode(', ', $rows) . ') VALUES ( ' . implode(', ', $names) . ')'
         );
         $stm->execute($row);
-        if($show)echo $stm->queryString;
+        if($show)echo $stm->getQuery($row);
         if(!empty($id))return $id;
         return $this->pdo->lastInsertId();
     }

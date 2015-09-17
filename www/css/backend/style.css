@@ -128,6 +128,20 @@ section.content {
     display: none;
 }
 
+.nestable-edit {
+    position: absolute;
+    left: 295px;
+    z-index: 20;
+    margin-top: -36px;
+}
+
+.nestable-delete {
+    position: absolute;
+    left: 311px;
+    z-index: 20;
+    margin-top: -36px;
+}
+
 /*checkbox*/
 
 

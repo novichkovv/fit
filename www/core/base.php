@@ -82,4 +82,10 @@ class base
     {
 
     }
+
+    protected function callEvent($event, array $data)
+    {
+        $class_name = $event . '_event';
+        return new $class_name($data);
+    }
 }

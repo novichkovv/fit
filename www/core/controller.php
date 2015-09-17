@@ -18,7 +18,8 @@ abstract class controller extends base
     protected $sidebar;
     private $redirect;
     public  $check_auth;
-    protected $scripts = array();
+    protected $scripts = [];
+    protected $styles = [];
 
     function __construct($controller, $action)
     {
@@ -77,6 +78,7 @@ abstract class controller extends base
             throw new Exception('Can not find template ' . $template_file);
         }
         $this->render('scripts', $this->scripts);
+        $this->render('styles', $this->styles);
         foreach($this->vars as $k => $v) {
             $$k = $v;
         }
@@ -215,6 +217,11 @@ abstract class controller extends base
         setcookie('auth', '', time() - 3600);
     }
 
+    protected function breadcrumbs()
+    {
+        $this->render('breadcrumbs', $this->fetch('common' . DS . 'breadcrumbs'));
+    }
+
     private function sidebar()
     {
         $system_route = trim($_REQUEST['route'], '/');
@@ -241,6 +248,9 @@ abstract class controller extends base
                         if(!$v['hidden']) {
                             $sidebar[$v['id']][$key] = $val;
                         }
+                        if($v['route'] == $system_route) {
+                            registry::set('system_route', $v);
+                        }
                     }
                 }
             } else {
@@ -254,6 +264,9 @@ abstract class controller extends base
                         }
                         if(!$v['hidden']) {
                             $sidebar[$v['parent']]['children'][$v['id']][$key] = $val;
+                        }
+                        if($v['route'] == $system_route) {
+                            registry::set('system_route', $v);
                         }
                     }
                 }
@@ -324,6 +337,20 @@ abstract class controller extends base
             }
         } else {
             $this->scripts[] = $file_name;
+        }
+    }
+
+    /**
+     * @param mixed $file_name
+     */
+
+    protected function addStyle($file_name) {
+        if(is_array($file_name)) {
+            foreach($file_name as $file) {
+                $this->styles[] = $file;
+            }
+        } else {
+            $this->styles[] = $file_name;
         }
     }
 

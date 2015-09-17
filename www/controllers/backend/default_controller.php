@@ -9,7 +9,7 @@ class default_controller extends controller
 {
     public function index()
     {
-        $this->view_only('common' . DS . '404');
+        $this->view('common' . DS . '404');
     }
 
     public function dev()
