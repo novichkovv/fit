@@ -87,12 +87,13 @@ abstract class controller extends base
         if($this->header !== false) {
             require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'header.php' : TEMPLATE_DIR . 'common' . DS .$this->header . '.php');
         }
-        if($this->sidebar !== false) {
-            require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'sidebar.php' : TEMPLATE_DIR . 'common' . DS .$this->sidebar() . '.php');
-        }
         if($template_file !== false) {
             require_once($template_file);
         }
+        if($this->sidebar !== false) {
+            require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'sidebar.php' : TEMPLATE_DIR . 'common' . DS .$this->sidebar() . '.php');
+        }
+
         if($this->footer !== false) {
             require_once(!$this->footer ? TEMPLATE_DIR . 'common' . DS . 'footer.php' : TEMPLATE_DIR . 'common' . DS .$this->footer . '.php');
         }

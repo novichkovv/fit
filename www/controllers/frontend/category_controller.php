@@ -2,15 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: enovichkov
- * Date: 28.08.2015
- * Time: 17:20
+ * Date: 17.09.2015
+ * Time: 16:39
  */
-class index_controller extends controller
+class category_controller extends controller
 {
     public function index()
     {
         $this->addScript('libs/isotope.min');
-        $this->view('index' . DS . 'index');
+        $this->view_only('category' . DS . 'index');
     }
 
     public function index_na()
