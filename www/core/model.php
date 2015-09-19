@@ -5,7 +5,7 @@
  * Date: 06.03.15
  * Time: 19:34
  */
-class model
+class model extends base
 {
     public $table;
     protected $pdo;
@@ -201,7 +201,7 @@ class model
         DELETE FROM ' . $this->table . ' WHERE id = :id
         ');
         if($show)echo $stm->queryString;
-        if($stm->execute(array('' . 'id'=>$id)))
+        if($stm->execute(array('id'=>$id)))
             return true;
         else
             return false;

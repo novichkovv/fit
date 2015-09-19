@@ -10,7 +10,7 @@ class categories_model extends model
     public function getCategories()
     {
         $tmp = $this->get_all($stm = $this->pdo->prepare('
-            SELECT * FROM categories ORDER BY parent, position
+            SELECT * FROM categories WHERE active = 1 ORDER BY parent, position
         '));
         $res = [];
         foreach ($tmp as $k => $v) {
@@ -46,5 +46,18 @@ class categories_model extends model
 
         }
         return $res;
+    }
+
+    public function makeInactive($ids)
+    {
+        if(!is_array($ids)) {
+            return false;
+        }
+        $ids = '(' . implode(', ', $ids) . ')';
+        $position = $this->get_row($this->pdo->prepare('SELECT position FROM categories WHERE parent = 0 ORDER BY position DESC LIMIT 1'))['position'] + 1;
+        $stm = $this->pdo->prepare('
+            UPDATE categories SET active = 0, parent = 0, position = :position  WHERE id IN ' . $ids . '
+        ');
+        return $stm->execute(array('position' => $position));
     }
 }

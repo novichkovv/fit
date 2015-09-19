@@ -12,6 +12,9 @@ var ajax = function ajax(params)
     if(!params.values)params.values = new Object;
     params.values.ajax = true;
     params.values.action = params.action;
+    if(params.common) {
+        params.values.common = true;
+    }
     if(params.get_from_form)
     {
         $("#" + params.get_from_form + " input:not([type='checkbox'],[type='radio']), #" + params.get_from_form + " textarea, #" + params.get_from_form + " select").each(function()

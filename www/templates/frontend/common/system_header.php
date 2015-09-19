@@ -11,7 +11,7 @@
     <meta name="robots" content="<?php echo $robots; ?>">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
 
-    <link rel="icon" href="#" type="image/x-icon">
+    <link rel="icon" href="<?php echo SITE_DIR; ?>images/main/favicon.gif" type="image/x-icon">
     <link rel="shortcut icon" href="#" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/libs/bootstrap.min.css">

@@ -33,15 +33,23 @@ if(!file_exists(CONTROLLER_DIR . $class_name . '.php')) {
 }
 
 registry::set('controller', $class_name);
+$common_controller = new common_controller('common_controller', 'index');
 $controller = new $class_name($class_name, $action);
 if(!$controller->check_auth) {
     $action .= '_na';
 }
 if(isset($_REQUEST['ajax'])) {
     $ajax_action = $action . '_ajax';
-    if(is_callable($controller->$ajax_action())) {
-        $controller->$ajax_action();
+    if(!$_REQUEST['common']) {
+        if(is_callable($controller->$ajax_action())) {
+            $controller->$ajax_action();
+        }
+    } else {
+        if(is_callable($common_controller->index_ajax())) {
+            $controller->index_ajax();
+        }
     }
+
 }
 
 

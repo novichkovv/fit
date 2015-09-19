@@ -1,5 +1,13 @@
 <?php echo $breadcrumbs; ?>
 <div class="row">
+    <div class="col-md-3">
+        <a class="btn btn-info btn-lg" data-toggle="modal" id="add_category" href="#add_category_modal">
+            <i class="fa fa-plus"></i> Добавить категорию
+        </a>
+    </div>
+</div>
+<hr>
+<div class="row">
     <div class="col-md-8">
         <div class="panel panel-info">
             <div class="panel panel-heading">
@@ -8,13 +16,13 @@
             <div class="panel-body">
                 <form method="post" action="">
                     <div class="row">
-                        <div class="dd">
-                            <ol class="dd-list">
+                        <div class="dd" style="margin: -20px 20px 0;">
+                            <ol class="dd-list" id="active_categories">
                                 <?php foreach ($categories as $category): ?>
                                     <li class="dd-item" data-id="<?php echo $category['id']; ?>">
                                         <div class="dd-handle"><?php echo $category['category_name']; ?></div>
-                                        <a style="padding: 6px 0;" class="btn btn-icon nestable-edit delete_category">
-                                            <i class="fa text-warning fa-remove"></i>
+                                        <a style="padding: 6px 0;" class="btn btn-xs nestable-edit inactivate_category">
+                                            <i class="fa text-danger fa-remove"></i>
                                         </a>
                                         <a style="padding: 6px 0;" class="btn btn-icon nestable-delete edit_category" href="#add_category_modal" data-toggle="modal">
                                             <i class="fa fa-pencil"></i>
@@ -31,52 +39,40 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-4">
-        <div class="text-center">
-            <a class="btn btn-info" data-toggle="modal" id="add_category" href="#add_category_modal">
-                <i class="fa fa-plus"></i> Добавить категорию
-            </a>
-        </div>
-        <br>
         <div class="panel panel-default">
             <div class="panel panel-heading">
                 <h3 class="panel-title">Неактивные Категории</h3>
             </div>
-            <div class="panel-body" id="inactive_categories">
-
+            <div class="panel-body">
+                <table style="width: 100%;" border="0" id="inactive_categories">
+                    <?php foreach ($inactive_categories as $category): ?>
+                        <tr class="inactive_category" data-id="<?php echo $category['id']; ?>" style="border-bottom: 1px solid #eee;">
+                            <td style="width: 35px;">
+                                <button class="btn btn-xs btn-default activate_category">
+                                    <i class="fa fa-long-arrow-left"></i>
+                                </button>
+                            </td>
+                            <td><?php echo $category['category_name']; ?></td>
+                            <td class="text-right" style="width: 75px;">
+                                <button class="btn btn-xs btn-default delete_category" data-target="#delete_modal" data-toggle="modal">
+                                    <i class="fa text-warning fa-remove"></i>
+                                </button>
+                                <a class="btn btn-xs btn-default edit_category" data-target="#add_category_modal" data-toggle="modal">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
             </div>
         </div>
     </div>
 </div>
 <div class="modal fade" id="add_category_modal">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="category_form">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Новая Категория</h4>
-                </div>
-                <div class="modal-body with-padding">
-                    <div class="form-group">
-                        <label>Название</label>
-                        <input type="text" class="form-control" name="category[category_name]">
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="category[active]" value="1" <?php if($category['active'] || !$category) echo 'checked'; ?>>
-                                Активный
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="category[id]" value="">
-                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                </div>
-            </form>
+        <div class="modal-content" id="category_form_container">
+
         </div>
     </div>
 </div>
@@ -102,10 +98,7 @@
 
         $("#add_category").click(function()
         {
-            $("#category_form input[type='text'], #category_form textarea, #category_form select").each(function()
-            {
-                $(this).val('');
-            })
+            getCategoryForm(0);
         });
         $("#category_form").submit(function()
         {
@@ -113,17 +106,13 @@
                 var params = {
                     'action': 'save_category',
                     'get_from_form': 'category_form',
-                    callback: function (msg) {
+                    'callback': function (msg) {
                         ajax_respond(msg,
                             function(respond){
                                 if(respond.active) {
                                     if($('.dd-item[data-id="' + respond.category_id + '"]').length) {
-//                                        var item = $('.dd-item[data-id="' + respond.category_id + '"]');
-//                                        $(item).after(respond.template);
-//                                        $(item).remove();
-                                        $('.dd-item[data-id="' + respond.category_id + '"]').find('dd-handle').html(respond.category_name);
+                                        $('.dd-item[data-id="' + respond.category_id + '"]').children('.dd-handle').html(respond.category_name);
                                     } else {
-                                        console.log($(".dd").children('.dd-list'));
                                         $(".dd").children('.dd-list').append(respond.template);
                                     }
                                     $('.dd').nestable({maxDepth:5});
@@ -141,29 +130,106 @@
         $('body').on('click', ".edit_category", function()
         {
             var category_id = $(this).closest('.dd-item').attr('data-id');
+            getCategoryForm(category_id);
+        });
+
+        $('body').on('click', '.activate_category', function()
+        {
+            var item = $(this).closest('tr');
+            var id = $(item).attr('data-id');
             var params = {
-                'action': 'get_category_data',
-                'values': {category_id: category_id},
+                'action': 'activate_category',
+                'values': {id: id},
+                'callback': function (msg) {
+                    ajax_respond(msg,
+                        function (respond) {
+                            $(item).remove();
+                            $("#active_categories").append(respond.template);
+                            $('.dd').nestable({maxDepth:5});
+                        });
+                }
+            };
+            ajax(params);
+        });
+
+
+        $('body').on('click', ".inactivate_category", function()
+        {
+            var item = $(this).closest('.dd-item');
+            var category_id = $(item).attr('data-id');
+            var category_name = $(item).find('.dd-handle').html();
+            var array = new Object();
+            array[category_id] = category_name;
+            $(item).find('.dd-item').each(function()
+            {
+                var category_id = $(this).attr('data-id');
+                var category_name = $(this).find('.dd-handle').html();
+                if (category_id) {
+                    array[category_id] = category_name;
+                }
+                var item = $(this);
+                $(this).find('.dd-item').each(function() {
+                    recursion($(item), array);
+                });
+            });
+            $(item).remove();
+            var params = {
+                'action': 'get_inactive_category',
+                'values': {categories: array},
                 'callback': function (msg) {
                     ajax_respond(msg,
                         function(respond) {
-                            for(var key in respond.category) {
-                                var type = $("[name='category[" + key + "]'").attr('type');
-                                if(type == 'checkbox') {
-                                    if ($("[name='category[" + key + "]'").val()) {
-                                        $("[name='category[" + key + "]'").prop('checked', true).trigger('change');
-                                    } else {
-                                        $("[name='category[" + key + "]'").prop('checked', false).trigger('change');
-                                    }
-                                } else {
-                                    $("[name='category[" + key + "]'").val(respond.category[key]);
-                                }
-                            }
+                            $("#inactive_categories").append(respond.template);
                         }
                     );
                 }
             };
             ajax(params);
         });
+
+        $("body").on('click', '.delete_category', function()
+        {
+            var item = $(this).closest('tr');
+            var id = $(item).attr('data-id');
+            confirm_delete(id, 'categories', function()
+            {
+                $(item).remove();
+                Notifier.success('Категория удалена успешно!');
+            }, '', '', true, 'delete_category');
+        });
     });
+     function recursion(item, array)
+     {
+         $(item).find('.dd-item').each(function()
+         {
+             var category_id = $(this).attr('data-id');
+             var category_name = $(this).find('.dd-handle').html();
+             if (category_id) {
+                 array[category_id] = category_name;
+             }
+             var item = $(this);
+             $(this).find('.dd-item').each(function() {
+                 recursion($(item), array);
+             });
+         });
+     }
+
+    function getCategoryForm(category_id)
+    {
+        var params = {
+            'action': 'get_category_form',
+            'values': {category_id: category_id},
+            'callback': function (msg) {
+                ajax_respond(msg,
+                    function(respond) {
+                        $("#category_form_container").html(respond.template);
+                        for(var key in respond.category) {
+                            var type = $("[name='category[" + key + "]'").attr('type');
+                        }
+                    }
+                );
+            }
+        };
+        ajax(params);
+    }
 </script>

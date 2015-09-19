@@ -130,14 +130,14 @@ section.content {
 
 .nestable-edit {
     position: absolute;
-    left: 295px;
+    left: 321px;
     z-index: 20;
     margin-top: -36px;
 }
 
 .nestable-delete {
     position: absolute;
-    left: 311px;
+    left: 305px;
     z-index: 20;
     margin-top: -36px;
 }
@@ -856,3 +856,13 @@ section.content {
      font-weight: bold;
      left: 15%;
  }
+
+.padding-30 {
+    padding: 30px;
+}
+.padding-30 {
+    padding: 30px;
+}
+.padding-40 {
+    padding: 40px;
+}

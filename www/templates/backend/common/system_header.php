@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Backend</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" href="<?php echo SITE_DIR; ?>images/main/favicon.gif" type="image/x-icon">
     <link href="<?php echo SITE_DIR; ?>css/libs/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo SITE_DIR; ?>fonts/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo SITE_DIR; ?>css/backend/theme/style.css" rel="stylesheet" type="text/css" />

@@ -20,6 +20,7 @@ abstract class controller extends base
     public  $check_auth;
     protected $scripts = [];
     protected $styles = [];
+    protected $append_to_body_elements = [];
 
     function __construct($controller, $action)
     {
@@ -79,6 +80,7 @@ abstract class controller extends base
         }
         $this->render('scripts', $this->scripts);
         $this->render('styles', $this->styles);
+        $this->render('append_to_body_elements', $this->append_to_body_elements);
         foreach($this->vars as $k => $v) {
             $$k = $v;
         }
@@ -89,10 +91,13 @@ abstract class controller extends base
         if($this->header !== false) {
             require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'header.php' : TEMPLATE_DIR . 'common' . DS .$this->header . '.php');
         }
+        if($this->sidebar !== false && PROJECT == 'backend') {
+            require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'sidebar.php' : TEMPLATE_DIR . 'common' . DS .$this->sidebar() . '.php');
+        }
         if($template_file !== false) {
             require_once($template_file);
         }
-        if($this->sidebar !== false) {
+        if($this->sidebar !== false && PROJECT == 'frontend') {
             require_once(!$this->header ? TEMPLATE_DIR . 'common' . DS . 'sidebar.php' : TEMPLATE_DIR . 'common' . DS .$this->sidebar() . '.php');
         }
 
@@ -353,6 +358,29 @@ abstract class controller extends base
         } else {
             $this->styles[] = $file_name;
         }
+    }
+
+    /**
+     * @param $html
+     */
+
+    protected function appendToBody($html) {
+        $this->append_to_body_elements[] = $html;
+    }
+
+    /**
+     * @param string $title
+     * @param string $text
+     * @param string $item
+     * @throws Exception
+     */
+
+    protected function deleteModal($title = '', $text = '', $item = '')
+    {
+        $this->render('delete_modal_title', $title);
+        $this->render('delete_modal_title', $text);
+        $this->render('delete_modal_title', $item);
+        $this->appendToBody($this->fetch('common' . DS . 'delete_modal'));
     }
 
 }
