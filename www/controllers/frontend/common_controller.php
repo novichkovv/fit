@@ -9,6 +9,6 @@ class common_controller extends controller
 {
     public function index()
     {
-        
+
     }
 }

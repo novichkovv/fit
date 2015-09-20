@@ -75,9 +75,10 @@ class products_controller extends controller
                 exit;
                 break;
 
-            case "get_category_data":
-                $category = $this->model('categories')->getById($_POST['category_id']);
-                echo json_encode(array('status' => 1, 'category' => $category));
+            case "get_category_form":
+                $this->render('category', $this->model('categories')->getById($_POST['category_id']));
+                $template = $this->fetch('products' . DS . 'ajax' . DS . 'category_form');
+                echo json_encode(array('status' => 1, 'template' => $template));
                 exit;
                 break;
 
