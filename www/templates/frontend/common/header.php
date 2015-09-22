@@ -3,7 +3,7 @@
 <div class="row" id="header">
 <div class="col-sm-2 logo">
     <a href="<?php echo MAIN_SITE_DIR; ?>" title="Flavours HTML">
-        <div><img src="<?php echo SITE_DIR; ?>images/main/fit-logo.png" alt="Flavours Store"></div>
+        <div><img src="<?php echo SITE_DIR; ?>images/main/logo200.png" alt="Flavours Store"></div>
     </a>
 </div>
 <div class="col-sm-10" id="header-banner-container">

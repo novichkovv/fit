@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-sm-4 col-xs-12 col-lg-4">
                     <div class="co-info">
-                        <div><a href="index.html"><img src="images/logo.png" alt="footer logo"></a></div>
+                        <div><a href="index.html"><img src="<?php echo SITE_DIR; ?>images/main/logo200.png" alt="footer logo"></a></div>
                         <address>
                             <div><em class="icon-location-arrow"></em> <span>ABC Town Luton Street, New York 226688</span></div>
                             <div> <em class="icon-mobile-phone"></em><span> + 0800 567 345</span></div>
@@ -158,7 +158,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-xs-12 coppyright">© 2015 Flavours. All Rights Reserved.</div>
+                <div class="col-sm-12 col-xs-12 coppyright">© <?php echo date('Y'); ?> 1nut.ru. Все права защищены.</div>
 
             </div>
             <!--row-->
