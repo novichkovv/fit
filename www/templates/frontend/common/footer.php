@@ -44,25 +44,38 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col">
                         <!-- Footer Payment Link -->
                         <div class="payment-accept">
-                            <div><img src="images/payment-1.png" alt="payment1"> <img src="images/payment-2.png" alt="payment2"> <img src="images/payment-3.png" alt="payment3"> <img src="images/payment-4.png" alt="payment4"></div>
+                            <div>
+                                <img src="<?php echo SITE_DIR; ?>images/frontend/payment_icons/webmoney.png" alt="payment1">
+                                <img src="<?php echo SITE_DIR; ?>images/frontend/payment_icons/visa.png" alt="payment2">
+                                <img src="<?php echo SITE_DIR; ?>images/frontend/payment_icons/mastercard.png" alt="payment3">
+                                <img src="<?php echo SITE_DIR; ?>images/frontend/payment_icons/qiwi.png" alt="payment4">
+                            </div>
                         </div>
                     </div>
                     <!-- Footer Newsletter -->
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col1">
-                        <div class="newsletter-wrap">
-                            <h4>Sign up for emails</h4>
-                            <form action="#" method="post" id="newsletter-validate-detail1">
-                                <div id="container_form_news">
-                                    <div id="container_form_news2">
-                                        <input type="text" name="email" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
-                                        <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
-                                    </div>
-                                    <!--container_form_news2-->
-                                </div>
-                                <!--container_form_news-->
-                            </form>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <h4>Подписка на Новости</h4>
+                            </div>
+                            <div class="col-xs-7">
+                                <input type="text" name="email" style="width: 100%;" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
 
+<!--                                <form action="#" method="post" id="newsletter-validate-detail1">-->
+<!--                                    <div id="container_form_news">-->
+<!--                                        <div id="container_form_news2">-->
+<!--                                            -->
+<!--                                        </div>-->
+<!--                                        <!--container_form_news2-->
+<!--                                    </div>-->
+<!--                                    <!--container_form_news-->
+<!--                                </form>-->
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="submit" title="Subscribe" style="background: rgba(255,255,255,0.4);" class="button subscribe"><span>Subscribe</span></button>
+                            </div>
                         </div>
+
                         <!--newsletter-wrap-->
                     </div>
 
