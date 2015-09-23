@@ -53,7 +53,7 @@
                                     <i class="fa fa-long-arrow-left"></i>
                                 </button>
                             </td>
-                            <td><?php echo $category['category_name']; ?></td>
+                            <td class="inactive_category_name"><?php echo $category['category_name']; ?></td>
                             <td class="text-right" style="width: 75px;">
                                 <button class="btn btn-xs btn-default delete_category" data-target="#delete_modal" data-toggle="modal">
                                     <i class="fa text-warning fa-remove"></i>
@@ -100,9 +100,10 @@
         {
             getCategoryForm(0);
         });
-        $("#category_form").submit(function()
+
+        $("body").on('submit', "#category_form", function()
         {
-            if(validate('category_form')) {
+            if(validate('category_form') && $("#key_unique_error").css('display') == 'none') {
                 var params = {
                     'action': 'save_category',
                     'get_from_form': 'category_form',
@@ -116,6 +117,12 @@
                                         $(".dd").children('.dd-list').append(respond.template);
                                     }
                                     $('.dd').nestable({maxDepth:5});
+                                } else {
+                                    if($("tr[data-id='" + respond.category_id + "']").length) {
+                                        $("tr[data-id='" + respond.category_id + "']").find('.inactive_category_name').html(respond.category_name);
+                                    } else {
+                                        $("#inactive_categories").append(respond.template);
+                                    }
                                 }
                                 $("#add_category_modal").modal('hide');
                             }
@@ -129,7 +136,13 @@
 
         $('body').on('click', ".edit_category", function()
         {
-            var category_id = $(this).closest('.dd-item').attr('data-id');
+            var category_id;
+            var dd = $(this).closest('.dd-item');
+            if ($(dd).length) {
+                category_id = $(dd).attr('data-id');
+            } else {
+                category_id = $(this).closest('tr').attr('data-id');
+            }
             getCategoryForm(category_id);
         });
 
@@ -197,6 +210,28 @@
                 Notifier.success('Категория удалена успешно!');
             }, '', '', true, 'delete_category');
         });
+
+        $("body").on('change', '#category_key', function()
+        {
+            var value = $(this).val();
+            var error_message = $("#key_unique_error");
+            $(error_message).slideUp();
+            if(value) {
+                var params = {
+                    'action': 'check_unique_category_key',
+                    'values': {category_key: value},
+                    'callback': function (msg) {
+                        ajax_respond(msg,
+                            function(respond){},
+                            function(respond) {
+                                $(error_message).slideDown();
+                            }
+                        );
+                    }
+                };
+                ajax(params);
+            }
+        })
     });
      function recursion(item, array)
      {
@@ -223,9 +258,24 @@
                 ajax_respond(msg,
                     function(respond) {
                         $("#category_form_container").html(respond.template);
-                        for(var key in respond.category) {
-                            var type = $("[name='category[" + key + "]'").attr('type');
-                        }
+                        var params = {
+                            name: 'category[image]',
+                            data: {'rand': $("#rand").val(), 'ajax': true, 'action': 'save_category_img'},
+                            success: function (respond) {
+                                if (respond.status == 1) {
+                                    $("#preview").html('<img src="<?php echo SITE_DIR; ?>tmp/uploaded/' + respond.img + '?' + Math.round(Math.random() * 1000) + '" id="logo_preview">');
+                                    $("#category_image_hidden_input").val(respond.img);
+                                } else {
+                                    toastr.error('Unexpected Error!');
+                                }
+                                ajax_file_upload(params);
+                            },
+                            error: function (respond) {
+                                Notifier.error('Unexpected Error!');
+                                $('a[href="#tab_0"]').tab('show');
+                            }
+                        };
+                        ajax_file_upload(params);
                     }
                 );
             }

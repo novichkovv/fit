@@ -6,212 +6,40 @@
     <!-- BEGIN BOX-CATEGORY -->
     <div class="box-content box-category">
         <ul>
-            <li> <a class="active" href="grid.html">Протеины</a> <span class="subDropdown minus"></span>
-                <ul class="level0_415" style="display:block">
-                    <li> <a href="grid.html"> Сывороточные </a> <span class="subDropdown plus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Все</span></a> </li>
-                            <li> <a href="grid.html"><span>Изоляты</span></a> </li>
-                            <li> <a href="grid.html"><span>Гидролизаты</span></a> </li>
-                            <li> <a href="grid.html"><span>Простые</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Казеиновые </a> <span class="subDropdown plus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Candle Salad</span></a> </li>
-                            <li> <a href="grid.html"><span>Frogeye Salad</span></a> </li>
-                            <li> <a href="grid.html"><span>Green Papaya Salad</span></a> </li>
-                            <li> <a href="grid.html"><span>Waldorf salad</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Соевые </a> <span class="subDropdown plus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Louis Dressings</span></a> </li>
-                            <li> <a href="grid.html"><span>French Dressings</span></a> </li>
-                            <li> <a href="grid.html"><span>Gingner Dressings</span></a> </li>
-                            <li> <a href="grid.html"><span>Italian Dressings</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Комплексные </a> <span class="subDropdown plus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Fenugreek</span></a> </li>
-                            <li> <a href="grid.html"><span>Spinach</span></a> </li>
-                            <li> <a href="grid.html"><span>Malva</span></a> </li>
-                            <li> <a href="grid.html"><span>Cabbage</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                </ul>
-                <!--level0-->
+            <?php foreach ($common_vars['menu_categories'] as $category): ?>
+            <li>
+                <a class="active" href="<?php echo SITE_DIR; ?><?php echo $category['category_key']; ?>/">
+                    <?php echo $category['category_name']; ?>
+                </a>
+                <span class="subDropdown minus"></span>
+                <?php if ($category['children']): ?>
+                    <ul class="level0_415" style="display:block">
+                    <?php foreach ($category['children'] as $child): ?>
+                        <li>
+                            <a href="<?php echo SITE_DIR; ?><?php echo $child['category_key']; ?>">
+                                <span><?php echo $child['category_name']; ?></span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </li>
-            <!--level 0-->
-            <li> <a href="grid.html">Гейнеры</a> <span class="subDropdown plus"></span>
-                <ul class="level0_455" style="display:none">
-                    <li> <a href="grid.html"> Cold Soups </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Red Bean Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Fruit Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Naengguk</span></a> </li>
-                            <li> <a href="grid.html"><span>Borscht</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Cream Soups  </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Chowder</span></a> </li>
-                            <li> <a href="grid.html"><span>Asparagus Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Broccoli Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Mushroom Soup</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Vegitable Soups </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>French Onion Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Leek Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Minestrone</span></a> </li>
-                            <li> <a href="grid.html"><span>Spring Soup</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Bean Soups </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Bouneschlupp</span></a> </li>
-                            <li> <a href="grid.html"><span>Jókai Bean Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Kwati Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Senate bean</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Bread Soups </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Tomato Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Manchow Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Sweet Corn Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Shorba Soup</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Chinese Soups </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Hot & Sour</span></a> </li>
-                            <li> <a href="grid.html"><span>Noodle Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Corn Crab Soup</span></a> </li>
-                            <li> <a href="grid.html"><span>Sago Soup</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-
-                </ul>
-                <!--level0-->
-            </li>
-            <!--level 0-->
-            <li> <a href="#.html">Аминокислоты</a> <span class="subDropdown plus"></span>
-                <ul class="level0_482" style="display:none">
-                    <li> <a href="grid.html"> Indian </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Aloo Chaat</span></a> </li>
-                            <li> <a href="grid.html"><span>Batata Vada</span></a> </li>
-                            <li> <a href="grid.html"><span>Kachori</span></a> </li>
-                            <li> <a href="grid.html"><span>Panipuri</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Pizza </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Greek Pizza</span></a> </li>
-                            <li> <a href="grid.html"><span>Pizza Rolls</span></a> </li>
-                            <li> <a href="grid.html"><span>Grilled Pizza</span></a> </li>
-                            <li> <a href="grid.html"><span>Pizza Strips</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> McDonald's </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Kiwiburger</span></a> </li>
-                            <li> <a href="grid.html"><span>Happy Meal</span></a> </li>
-                            <li> <a href="grid.html"><span>McMuffin</span></a> </li>
-                            <li> <a href="grid.html"><span>McGriddles</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Wendy's Foods </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Bacon Deluxe</span></a> </li>
-                            <li> <a href="grid.html"><span>Baconator</span></a> </li>
-                            <li> <a href="grid.html"><span>Frescata</span></a> </li>
-                            <li> <a href="grid.html"><span>Frosty</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Burger King</a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Big King</span></a> </li>
-                            <li> <a href="grid.html"><span>TenderCrisp</span></a> </li>
-                            <li> <a href="grid.html"><span>Whopper</span></a> </li>
-                            <li> <a href="grid.html"><span>Kuro Burger</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                    <li> <a href="grid.html"> Sandwiches </a> <span class="subDropdown minus"></span>
-                        <ul class="level1" style="display:none">
-                            <li> <a href="grid.html"><span>Hamburgers</span></a> </li>
-                            <li> <a href="grid.html"><span> Hot Dogs‎</span></a> </li>
-                            <li> <a href="grid.html"><span>American Sandwiches</span></a> </li>
-                            <li> <a href="grid.html"><span>Chilean Sandwiches</span></a> </li>
-                        </ul>
-                        <!--level1-->
-                    </li>
-                    <!--level1-->
-                </ul>
-                <!--level0-->
-            </li>
-            <!--level 0-->
-            <li> <a href="grid.html">Жиросжигатели</a> </li>
-            <!--level 0-->
-
+            <?php endforeach; ?>
         </ul>
     </div>
     <!--box-content box-category-->
 </div>
 <!--side-nav-categories-->
 <div class="block block-layered-nav">
-    <div class="block-title"> Shop By </div>
+    <div class="block-title"> Цели </div>
     <div class="block-content">
-        <p class="block-subtitle">Shopping Options</p>
+<!--        <p class="block-subtitle">Shopping Options</p>-->
         <dl id="narrow-by-list">
-            <dt class="odd">Category</dt>
-            <dd class="odd">
-                <ol>
-                    <li> <a href="#"> Salad <span class="count">(24)</span> </a> </li>
-                    <li> <a href="#"> Soups <span class="count">(24)</span> </a> </li>
-                    <li> <a href="#"> Fast Food <span class="count">(24)</span> </a> </li>
-                    <li> <a href="#"> Sandwiches <span class="count">(24)</span> </a> </li>
-                </ol>
-            </dd>
-            <dt class="last odd">Price</dt>
-            <dd class="last odd">
-                <ol>
-                    <li> <a href="#"> <span class="price">$0.00</span> - <span class="price">$99.99</span> <span class="count">(26)</span> </a> </li>
-                    <li> <a href="#"> <span class="price">$100.00</span> and above <span class="count">(3)</span> </a> </li>
-                </ol>
-            </dd>
+            <dt class="odd">Набор массы</dt>
+            <dt class="odd">Рост силы</dt>
+            <dt class="odd">Похудение</dt>
+            <dt class="odd">Прирост энергии</dt>
+            <dt class="odd">Укрепление здоровья</dt>
         </dl>
     </div>
 </div>
@@ -355,3 +183,147 @@
 </aside>
 <!--col-right sidebar-->
 </div>
+<!--
+<li>
+                <a class="active" href="grid.html">Протеины</a> <span class="subDropdown minus"></span>
+                <ul class="level0_415" style="display:block">
+                    <li> <a href="grid.html"> Сывороточные </a> <span class="subDropdown plus"></span>
+                        <ul class="level1" style="display:none">
+                            <li> <a href="grid.html"><span>Все</span></a> </li>
+                            <li> <a href="grid.html"><span>Изоляты</span></a> </li>
+                            <li> <a href="grid.html"><span>Гидролизаты</span></a> </li>
+                            <li> <a href="grid.html"><span>Простые</span></a> </li>
+                        </ul>
+</li>
+<li> <a href="grid.html"> Казеиновые </a> <span class="subDropdown plus"></span>
+    <ul class="level1" style="display:none">
+        <li> <a href="grid.html"><span>Candle Salad</span></a> </li>
+        <li> <a href="grid.html"><span>Frogeye Salad</span></a> </li>
+        <li> <a href="grid.html"><span>Green Papaya Salad</span></a> </li>
+        <li> <a href="grid.html"><span>Waldorf salad</span></a> </li>
+    </ul>
+</li>
+<li> <a href="grid.html"> Соевые </a> <span class="subDropdown plus"></span>
+    <ul class="level1" style="display:none">
+        <li> <a href="grid.html"><span>Louis Dressings</span></a> </li>
+        <li> <a href="grid.html"><span>French Dressings</span></a> </li>
+        <li> <a href="grid.html"><span>Gingner Dressings</span></a> </li>
+        <li> <a href="grid.html"><span>Italian Dressings</span></a> </li>
+    </ul>
+</li>
+<li> <a href="grid.html"> Комплексные </a> <span class="subDropdown plus"></span>
+    <ul class="level1" style="display:none">
+        <li> <a href="grid.html"><span>Fenugreek</span></a> </li>
+        <li> <a href="grid.html"><span>Spinach</span></a> </li>
+        <li> <a href="grid.html"><span>Malva</span></a> </li>
+        <li> <a href="grid.html"><span>Cabbage</span></a> </li>
+    </ul>
+</li>
+</ul>
+</li>
+<li> <a href="grid.html">Гейнеры</a> <span class="subDropdown plus"></span>
+    <ul class="level0_455" style="display:none">
+        <li> <a href="grid.html"> Cold Soups </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Red Bean Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Fruit Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Naengguk</span></a> </li>
+                <li> <a href="grid.html"><span>Borscht</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Cream Soups  </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Chowder</span></a> </li>
+                <li> <a href="grid.html"><span>Asparagus Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Broccoli Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Mushroom Soup</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Vegitable Soups </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>French Onion Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Leek Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Minestrone</span></a> </li>
+                <li> <a href="grid.html"><span>Spring Soup</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Bean Soups </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Bouneschlupp</span></a> </li>
+                <li> <a href="grid.html"><span>Jókai Bean Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Kwati Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Senate bean</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Bread Soups </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Tomato Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Manchow Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Sweet Corn Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Shorba Soup</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Chinese Soups </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Hot & Sour</span></a> </li>
+                <li> <a href="grid.html"><span>Noodle Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Corn Crab Soup</span></a> </li>
+                <li> <a href="grid.html"><span>Sago Soup</span></a> </li>
+            </ul>
+        </li>
+
+    </ul>
+</li>
+<li> <a href="#.html">Аминокислоты</a> <span class="subDropdown plus"></span>
+    <ul class="level0_482" style="display:none">
+        <li> <a href="grid.html"> Indian </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Aloo Chaat</span></a> </li>
+                <li> <a href="grid.html"><span>Batata Vada</span></a> </li>
+                <li> <a href="grid.html"><span>Kachori</span></a> </li>
+                <li> <a href="grid.html"><span>Panipuri</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Pizza </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Greek Pizza</span></a> </li>
+                <li> <a href="grid.html"><span>Pizza Rolls</span></a> </li>
+                <li> <a href="grid.html"><span>Grilled Pizza</span></a> </li>
+                <li> <a href="grid.html"><span>Pizza Strips</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> McDonald's </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Kiwiburger</span></a> </li>
+                <li> <a href="grid.html"><span>Happy Meal</span></a> </li>
+                <li> <a href="grid.html"><span>McMuffin</span></a> </li>
+                <li> <a href="grid.html"><span>McGriddles</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Wendy's Foods </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Bacon Deluxe</span></a> </li>
+                <li> <a href="grid.html"><span>Baconator</span></a> </li>
+                <li> <a href="grid.html"><span>Frescata</span></a> </li>
+                <li> <a href="grid.html"><span>Frosty</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Burger King</a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Big King</span></a> </li>
+                <li> <a href="grid.html"><span>TenderCrisp</span></a> </li>
+                <li> <a href="grid.html"><span>Whopper</span></a> </li>
+                <li> <a href="grid.html"><span>Kuro Burger</span></a> </li>
+            </ul>
+        </li>
+        <li> <a href="grid.html"> Sandwiches </a> <span class="subDropdown minus"></span>
+            <ul class="level1" style="display:none">
+                <li> <a href="grid.html"><span>Hamburgers</span></a> </li>
+                <li> <a href="grid.html"><span> Hot Dogs‎</span></a> </li>
+                <li> <a href="grid.html"><span>American Sandwiches</span></a> </li>
+                <li> <a href="grid.html"><span>Chilean Sandwiches</span></a> </li>
+            </ul>
+        </li>
+    </ul>
+</li>
+<li> <a href="grid.html">Жиросжигатели</a> </li>-->

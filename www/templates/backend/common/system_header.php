@@ -11,9 +11,9 @@
     <link href="<?php echo SITE_DIR; ?>css/backend/style.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo SITE_DIR; ?>css/libs/jquery-ui.min.css" type="text/css" rel="stylesheet" />
     <link href="<?php echo SITE_DIR; ?>css/libs/select2.min.css" type="text/css" rel="stylesheet" />
-    <?php if ($scripts): ?>
-        <?php foreach ($scripts as $script): ?>
-            <link href="<?php echo SITE_DIR; ?>css/<?php echo $script; ?>.css" type="text/css" rel="stylesheet" />
+    <?php if ($styles): ?>
+        <?php foreach ($styles as $style): ?>
+            <link href="<?php echo SITE_DIR; ?>css/<?php echo $style; ?>.css" type="text/css" rel="stylesheet" />
         <?php endforeach; ?>
     <?php endif; ?>
 

@@ -28,12 +28,20 @@ $route_parts[0] = $controller;
 $route_parts[1] = $action;
 registry::set('route_parts', $route_parts);
 $class_name = $controller . '_controller';
+
+$common_controller = new common_controller('common_controller', 'index');
+if(PROJECT == 'frontend') {
+    $model = new default_model('frontend_routes');
+    if($route = $model->getByField('url_key', $route_parts[0])) {
+        $class_name = $route['controller'];
+        $action = $route['method'];
+    }
+}
+
 if(!file_exists(CONTROLLER_DIR . $class_name . '.php')) {
     $class_name = 'default_controller';
 }
-
 registry::set('controller', $class_name);
-$common_controller = new common_controller('common_controller', 'index');
 $controller = new $class_name($class_name, $action);
 if(!$controller->check_auth) {
     $action .= '_na';
@@ -51,11 +59,14 @@ if(isset($_REQUEST['ajax'])) {
     }
 
 }
-
-
+$common_controller->index();
 if(method_exists($controller ,$action)) {
     registry::set('action', $action);
-    $controller->$action();
+    if(PROJECT == 'frontend') {
+        $controller->$action($route['entity_id']);
+    } else {
+        $controller->$action();
+    }
 } else {
     $controller->default_action();
     registry::set('action', 'four_o_four');

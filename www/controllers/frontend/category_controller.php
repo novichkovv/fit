@@ -17,4 +17,15 @@ class category_controller extends controller
     {
         $this->index();
     }
+
+    public function view_category($id)
+    {
+        echo $id;
+        $this->view_only('category' . DS . 'index');
+    }
+
+    public function view_category_na($id)
+    {
+        $this->view_category($id);
+    }
 }

@@ -74,6 +74,9 @@ abstract class controller extends base
     protected function view($template)
     {
         $this->render('log', registry::get('log'));
+        if(registry::get('common_vars')) {
+            $this->render('common_vars', registry::get('common_vars'));
+        }
         $template_file = TEMPLATE_DIR . $template . '.php';
         if(!file_exists($template_file)) {
             throw new Exception('Can not find template ' . $template_file);

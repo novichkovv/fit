@@ -53,7 +53,7 @@ var validate = function validate(form_id)
 {
     var form = $("#" + form_id);
     var validate = true;
-    $('.error-require, .error-validate, .error-min, .error-max, .error-one_ten').each(function()
+    $('.validate_message').each(function()
     {
         $(this).slideUp();
     });
@@ -226,7 +226,7 @@ function ajax_file_upload(params)
                 status.text('Only JPG, PNG or GIF files are allowed');
                 return false;
             }
-            status.html(params.status_upload ? params.status_upload : '<img src="../../assets/global/img/loading-spinner-grey.gif" />');
+            status.html(params.status_upload ? params.status_upload : '<img src="http://' + document.domain + '/images/main/pl_90.GIF" />');
         },
         onComplete: function(file, msg){
             status.html('');
@@ -234,8 +234,11 @@ function ajax_file_upload(params)
                 var respond = JSON.parse(msg);
             }
             catch (e) {
-                console.log(e);
-                params.error();
+                if(typeof params.error == 'function') {
+                    params.error();
+                } else {
+                    Notifier.error('Не удалось загрузить изображение')
+                }
             }
             params.success(respond);
         }

@@ -574,6 +574,18 @@
         <h2>Изоляты</h2>
     </div>
 </div>
+<?php if ($log): ?>
+    <div id="log">
+   <pre>
+       <?php foreach ($log as $line): ?>
+           <?php echo $line; ?>
+           <hr>
+       <?php endforeach; ?>
+   </pre>
+    </div>
+    <div id="log-button">
+    </div>
+<?php endif; ?>
 <!--breadcrumbs-->
 <!-- BEGIN Main Container col2-left -->
 <section class="main-container col2-left-layout bounceInUp animated">

@@ -1,0 +1,9 @@
+#log {
+    display: none;
+}
+#log-button {
+    height: 10px;
+    cursor: pointer;
+    margin-top: -5px;
+    background: linear-gradient(180deg, #ccc, #eee, #fff);
+}

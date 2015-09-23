@@ -26,6 +26,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/frontend/style.css" media="all">
     <?php if($styles): ?>
         <?php foreach($styles as $style): ?>
             <link rel="stylesheet" type="text/css" href="<?php echo SITE_DIR; ?>css/<?php echo $style; ?>.css" >
@@ -41,6 +42,7 @@
     <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/libs/owl.carousel.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/libs/jquery.mobile-menu.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/common.js"></script>
+    <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/frontend/script.js"></script>
     <?php if($scripts): ?>
         <?php foreach($scripts as $script): ?>
             <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/<?php echo $script; ?>.js"></script>

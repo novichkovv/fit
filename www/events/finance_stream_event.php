@@ -5,7 +5,7 @@
  * Date: 04.09.2015
  * Time: 13:48
  */
-class finance_stream_event extends base
+class finance_stream_event extends base implements event_interface
 {
     private $event_data = array();
 

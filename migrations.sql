@@ -190,11 +190,15 @@ CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
   category_key VARCHAR (255) NOT NULL,
   category_name VARCHAR (255) NOT NULL,
+  image VARCHAR(255) NOT NULL ,
+  mega_menu TINYINT NOT NULL ,
   parent BIGINT UNSIGNED NOT NULL,
   category_description TEXT NOT NULL,
   meta_keywords TEXT NOT NULL,
   meta_description TEXT NOT NULL,
+  url_key VARCHAR(255) NOT NULL ,
   page_title VARCHAR(255) NOT NULL,
+  position INT NOT NULL ,
   active TINYINT NOT NULL,
   hidden TINYINT NOT NULL
 )ENGINE=MyISAM;
@@ -212,7 +216,7 @@ CREATE TABLE products (
   create_date DATETIME NOT NULL
 )ENGINE=MyISAM;
 
-CREATE TABLE categories_products_relations (
+CREATE TABLE products_categories_relations (
   category_id BIGINT UNSIGNED NOT NULL,
   product_id BIGINT UNSIGNED NOT NULL
 )ENGINE=MyISAM;
@@ -221,7 +225,14 @@ INSERT INTO `fit_shop`.`system_routes` (`route`, `title`, `position`, `icon`) VA
 UPDATE `fit_shop`.`system_routes` SET `position`='13' WHERE `id`='16';
 INSERT INTO `fit_shop`.`system_routes` (`route`, `title`, `position`, `parent`) VALUES ('finance/streams', 'Приход/Расход', '15', '17');
 
-
+CREATE TABLE frontend_routes (
+  id      SERIAL PRIMARY KEY,
+  url_key VARCHAR(255) NOT NULL,
+  controller VARCHAR(255) NOT NULL,
+  method  VARCHAR(255) NOT NULL,
+  entity_id BIGINT UNSIGNED NOT NULL,
+  entity_table VARCHAR(255) NOT NULL
+)ENGINE = MyISAM;
 
 
 

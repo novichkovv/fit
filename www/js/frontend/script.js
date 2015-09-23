@@ -7,4 +7,12 @@ $(document).ready(function() {
     {
         $(this).parent().children('.sub-menu').slideToggle(100);
     });
+    $("#log-button").click(function()
+    {
+        $("#log").slideToggle();
+    });
+    $("#log").dblclick(function()
+    {
+        $(this).slideUp();
+    });
 });

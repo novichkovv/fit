@@ -244,6 +244,31 @@ class model extends base
     }
 
     /**
+     * @param array $fields
+     * @param integer $show
+     * @return mixed
+     */
+
+    public function deleteByFields(array $fields, $show = 0)
+    {
+        $where = array();
+        foreach($fields as $k => $v) {
+            $where[] = $k . ' = :' . $k;
+        }
+        $stm = $this->pdo->prepare(
+            'DELETE FROM
+        ' . $this->table . ' WHERE ' . implode(' AND ', $where)
+        );
+        if($show == 1) {
+            echo $stm->getQuery($fields);
+        }
+        if($show == 2) {
+            $this->writeLog('MYSQL', $stm->getQuery($fields));
+        }
+        return $stm->execute($fields);
+    }
+
+    /**
      * @param null $field
      * @param null $value
      * @return mixed
