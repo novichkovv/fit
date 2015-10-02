@@ -6,7 +6,7 @@
  * Time: 12:32
  */
 session_start();
-//header('Content-Type: text/html; charset=utf8');
+header('Content-Type: text/html; charset=utf8');
 error_reporting(0);
 if(isset($_POST['submit_btn'])) {
     if($_POST['login'] == 'krav4uk' && md5($_POST['password']) == 'c6681bf5088cf62418f95f12d0022d69') {
@@ -23,7 +23,7 @@ if($_SESSION['krav4uk']): ?>
 <!DOCTYPE html>
 <html>
 <head>
-<!--    <meta charset="utf-8">-->
+    <meta charset="utf-8">
 </head>
 <body>
 <h1 style="text-align: center;">
@@ -37,11 +37,11 @@ if($_SESSION['krav4uk']): ?>
 <h2>Счастье!</h2>
 <h3>Марии Ульяновой 17к1. Спиной к задней стене дома, примерно по центру.
     Идем налево, к углу зеленого забора.
-    Пак в верхней железяке, которая соединяет угловой столбик с секцией забора. См фото. </h3>
+    Пак в верхней железяке, которая соединяет угловой столбик с секцией забора. См фото.  </h3>
 <img src="3.jpg">
 <br>
 <form method="post" action="">
-    <input type="submit" name="exit" value="Выход"><br><br>
+    <input type="submit" name="exit" value="Р’С‹С…РѕРґ"><br><br>
 </form>
 </body>
 </html>
