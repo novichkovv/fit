@@ -6,17 +6,36 @@
  * Time: 12:32
  */
 session_start();
+//header('Content-Type: text/html; charset=utf8');
+error_reporting(0);
 if(isset($_POST['submit_btn'])) {
     if($_POST['login'] == 'krav4uk' && md5($_POST['password']) == 'c6681bf5088cf62418f95f12d0022d69') {
         $_SESSION['krav4uk'] = true;
     }
 }
+if(isset($_POST['exit'])) {
+    unset($_SESSION['krav4uk']);
+    session_destroy();
+    header('Location: ?');
+    exit;
+}
 if($_SESSION['krav4uk']): ?>
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+<!--    <meta charset="utf-8">-->
+</head>
 <body>
-sdfs
+<h1 style="text-align: center;">
+    С днем рождения!!!!
+</h1>
+<h3>9-я Парковая ул д 57 корпус 3 гна углу дома, у забора, под куском кирпича в углу</h3>
+<img src="2.jpg">
+<img src="1.png">
+<br>
+<form method="post" action="">
+    <input type="submit" name="exit" value="Выход"><br><br>
+</form>
 </body>
 </html>
 <?php endif; ?>
@@ -30,6 +49,7 @@ sdfs
         <input type="text" name="password"><br><br>
         <input type="submit" name="submit_btn"><br><br>
     </form>
+
 </body>
 </html>
 <?php endif; ?>
