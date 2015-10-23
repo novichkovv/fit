@@ -26,18 +26,8 @@ if($_SESSION['krav4uk']): ?>
     <meta charset="utf-8">
 </head>
 <body>
-<h1 style="text-align: center;">
-    Забирайте дудочку
-</h1>
-<h2>Дудка!</h2>
-<h3>Домодедовская ул., 7 корпус 2
-    Москва, Россия
-    55.612247, 37.710279
 
-    Смотрим фото, клад в нижнем правом углу решетки под листьями. </h3>
-<img src="2.jpg">
-<img src="1.jpg">
-<br><br><br><br>
+
 <form method="post" action="">
     <input type="submit" name="exit" value="Выйти"><br><br>
 </form>
