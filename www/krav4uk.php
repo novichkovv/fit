@@ -27,21 +27,19 @@ if($_SESSION['krav4uk']): ?>
 </head>
 <body>
 <h1 style="text-align: center;">
-    С днем рождения!!!!
+    Забирайте дудочку
 </h1>
 <h2>Дудка!</h2>
-<h3>9-я Парковая ул д 57 корпус 3 гна углу дома, у забора, под куском кирпича в углу</h3>
+<h3>Домодедовская ул., 7 корпус 2
+    Москва, Россия
+    55.612247, 37.710279
+
+    Смотрим фото, клад в нижнем правом углу решетки под листьями. </h3>
 <img src="2.jpg">
-<img src="1.png">
+<img src="1.jpg">
 <br><br><br><br>
-<h2>Счастье!</h2>
-<h3>Марии Ульяновой 17к1. Спиной к задней стене дома, примерно по центру.
-    Идем налево, к углу зеленого забора.
-    Пак в верхней железяке, которая соединяет угловой столбик с секцией забора. См фото.  </h3>
-<img src="3.jpg">
-<br>
 <form method="post" action="">
-    <input type="submit" name="exit" value="Р’С‹С…РѕРґ"><br><br>
+    <input type="submit" name="exit" value="Выйти"><br><br>
 </form>
 </body>
 </html>
@@ -53,7 +51,7 @@ if($_SESSION['krav4uk']): ?>
 <body>
     <form action="" method="post">
         <input type="text" name="login"><br><br>
-        <input type="text" name="password"><br><br>
+        <input type="password" name="password"><br><br>
         <input type="submit" name="submit_btn"><br><br>
     </form>
 
